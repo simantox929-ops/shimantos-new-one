@@ -7,7 +7,7 @@
 <div class="hero3d" id="hero3d"><div class="orbit orbit1"><i></i></div><div class="orbit orbit2"><i></i></div><div class="core"><div class="cube"><div class="face f1"><img src="Screenshot 2026-09-24 064106.png" alt="cube" style="width: 100%; height: 100%; object-fit: cover;"></div><div class="face f2"><img src="IMG_20261013_212033.jpg" alt="cube" style="width: 100%; height: 100%; object-fit: cover;"></div><div class="face f3">⚡</div><div class="face f4">me</div><div class="face f5"><img src="Screenshot 2026-10-13 234435.png" alt="cube" style="width: 100%; height: 100%; object-fit: cover;"></div><div class="face f6"><img src="24010610" alt="cube" style="width: 100%; height: 95%; object-fit: cover;"></div></div></div><div class="floatTag t1">ENGINEERING STUDENT</div><div class="floatTag t2">CREATOR</div><div class="floatTag t3">LEARNER</div></div><a class="scroll" href="#about">SCROLL <span>↓</span></a></section>
 <section id="about" class="section"><div class="sectionHead reveal"><span>01</span><p>ABOUT ME</p><h2>Ideas with <em>depth.</em></h2></div><div class="aboutGrid"><article class="glass tilt reveal"><div class="wireSphere"><i></i><i></i><i></i></div><h3>Hello, I’m Simanto.</h3><p>I’m an Electrical &amp; Electronic Engineering student at Jamalpur Science & Technology University (JSTU), currently in my 2nd year, 1st semester and interested in circuits, programming, modern technology, and building new skills,I am passonate about my EEE,cicuit design and electronics.</p></article><div class="stats"><article class="tilt reveal"><strong>EEE</strong><span>My Field</span></article><article class="tilt reveal"><strong>∞</strong><span>Curiosity</span></article><article class="tilt reveal"><strong>100%</strong><span>Learning</span></article></div></div></section>
 <section id="skills" class="section"><div class="sectionHead reveal"><span>02</span><p>SKILLS</p><h2>My <em>toolbox.</em></h2></div><div class="skillStage reveal"><div class="skillOrbit"><div class="skillCore">SKILLS</div><span style="--a:0deg">autocad</span><span style="--a:60deg">c programing</span><span style="--a:120deg">circuit sim</span><span style="--a:180deg">HTML</span><span style="--a:240deg">CSS</span><span style="--a:300deg">JavaScript</span></div><div class="skillCopy"><h3>Learning by building.</h3><p>A continuous journey of exploring circuit design, programming, and engineering tools to build innovative solutions</p></div></div></section>
-<article class="project tilt reveal" style="background-image: url('photo_2026-10-14_03-09-18.jpg'); background-size: cover; background-position: center; position: relative;">
+<article class="project tilt reveal" style="background-image: url(''); background-size: cover; background-position: center; position: relative;">
   <!-- ছবির উপর হালকা কালো ওভারলে -->
   <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.6); z-index: 1;"></div>
 
@@ -36,7 +36,7 @@
 
     </div>
 
-    <!-- কমেন্ট লেখার বক্স ও লিস্ট (প্রথমে লুকিয়ে থাকবে) -->
+    <!-- কমেন্ট লেখার বক্স (প্রথমে লুকিয়ে থাকবে) -->
     <div id="comment-section" style="display: none; margin-top: 12px; border-top: 1px dashed rgba(255,255,255,0.2); padding-top: 10px;">
       <div style="display: flex; gap: 5px;">
         <input type="text" id="comment-input" placeholder="Write a comment..." style="flex: 1; padding: 5px 10px; border-radius: 4px; border: none; font-size: 12px;">
@@ -49,56 +49,6 @@
 
   </div>
 </article>
-
-<!-- জাভাস্ক্রিপ্ট কোড -->
-<script>
-  // লাইক টগল ফাংশন
-  function toggleLike() {
-    let countSpan = document.getElementById('like-count');
-    let likeBtn = document.getElementById('like-btn-1');
-    let currentLikes = parseInt(countSpan.innerText);
-    let hasLiked = localStorage.getItem('project1_liked');
-
-    if (!hasLiked) {
-      currentLikes += 1;
-      countSpan.innerText = currentLikes;
-      localStorage.setItem('project1_liked', 'true');
-      likeBtn.style.background = 'rgba(255, 51, 102, 0.4)';
-    } else {
-      currentLikes -= 1;
-      countSpan.innerText = currentLikes;
-      localStorage.removeItem('project1_liked');
-      likeBtn.style.background = 'rgba(255,255,255,0.1)';
-    }
-  }
-
-  // কমেন্ট বক্স ওপেন/ক্লোজ করার ফাংশন
-  function toggleCommentBox() {
-    let box = document.getElementById('comment-section');
-    if (box.style.display === 'none') {
-      box.style.display = 'block';
-    } else {
-      box.style.display = 'none';
-    }
-  }
-
-  // কমেন্ট যোগ করার ফাংশন
-  function addComment() {
-    let input = document.getElementById('comment-input');
-    let commentText = input.value.trim();
-    if (commentText === '') return;
-
-    let list = document.getElementById('comment-list');
-    let p = document.createElement('p');
-    p.style.margin = '3px 0';
-    p.style.background = 'rgba(255,255,255,0.1)';
-    p.style.padding = '3px 6px';
-    p.style.borderRadius = '3px';
-    p.innerText = commentText;
-
-    list.appendChild(p);
-    input.value = ''; // ইনপুট বক্স খালি করা
-  }
 <section id="certificates" class="section"><div class="sectionHead reveal"><span>04</span><p>ACHIEVEMENTS</p><h2>Certificates, <em>flipped.</em></h2></div><div class="certGrid"><article class="cert reveal" tabindex="0"><div class="certInner"><div class="certFront"><span>01</span><strong>CERTIFICATE</strong><small>Hover / tap to flip</small></div><div class="certBack"><h3>Your Certificate</h3><p><img src="Screenshot 2026-10-04 022624.png" alt="gallery" style="width: 100%; height: 100%; object-fit: cover;></p><a href="assets/certificate-1.pdf" target="_blank">Open Certificate ↗</a></div></div></article><article class="cert reveal" tabindex="0"><div class="certInner"><div class="certFront"><span>02</span><strong>CERTIFICATE</strong><small>Hover / tap to flip</small></div><div class="certBack"><h3>my Certificate</h3><p><img src="Screenshot 2026-10-04 022640.png" alt="gallery" style="width: 100%; height: 100%; object-fit: cover;></p><a href="assets/certificate-2.pdf" target="_blank">Open Certificate ↗</a></div></div></article></div></section>
 <section id="gallery" class="section"><div class="sectionHead reveal"><span>05</span><p>GALLERY</p><h2>Moments with <em>perspective.</em></h2></div><div class="gallery"><article class="photo tilt reveal"><div class="photoVisual"><img src="Screenshot 2026-10-02 022958.png" alt="gallery" style="width: 100%; height: 100%; object-fit: cover;"></div><div class="photoBar"></button></form><div class="comments"></div<button class="like">♡ <span>0</span></button><button class="commentToggle">Comment</button></div><form class="commentForm"><input aria-label="Comment" maxlength="120" placeholder="Write a comment…"><button>Post></article><article class="photo tilt reveal"><div class="photoVisual alt"><span><img src="Screenshot 2026-10-02 022911.png" alt="gallery" style="width: 100%; height: 100%; object-fit: cover;"></span></div><div class="photoBar"><button class="like">♡ <span>0</span></button><button class="commentToggle">Comment</button></div><form class="commentForm"><input aria-label="Comment" maxlength="120" placeholder="Write a comment…"><button>Post</button></form><div class="comments"></div></article></div><p class="localNote">Likes and comments are stored on this browser. Add a database later for shared public interactions.</p></section>
 <section id="contact" class="contact section"><div class="sectionHead reveal"><span>06</span><p>CONTACT</p><h2>Let’s <em>connect.</em></h2></div><div class="contactOrbit reveal"><div class="contactCore"><p class="type" style="font-size": 9px>CLICK ICON TO CONNECT</p></div><a style="--a:0deg" href="https://github.com/" target="_blank" rel="noopener"><b>GH</b><span>GitHub</span></a><a style="--a:72deg" href="https://x.com/SimantoSanyal" target="_blank" rel="noopener"><b>X</b><span>X</span></a><a style="--a:144deg" href="https://www.facebook.com/watching.013" target="_blank" rel="noopener"><b>FB</b><span>Facebook</span></a><a style="--a:216deg" href="https://instagram.com/sanyal_jr._10_?exln=eWQxYW9rY3B1c3pu" target="_blank" rel="noopener"><b>IG</b><span>Instagram</span></a><a style="--a:288deg" href="mailto:shimantos292@gmail.com"><b>@</b><span>Email</span></a></div></section>
