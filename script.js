@@ -11,3 +11,51 @@ $$('.cert').forEach(c=>c.addEventListener('click',e=>{if(!e.target.closest('a'))
 const words=['EEE Student','Problem Solver','C Programmer','Technology Explorer'];let wi=0,ci=0,del=false;function type(){const w=words[wi],el=$('#typed');el.textContent=w.slice(0,ci);if(!del&&ci<w.length)ci++;else if(del&&ci>0)ci--;else if(ci===w.length){del=true;return setTimeout(type,1100)}else{del=false;wi=(wi+1)%words.length}setTimeout(type,del?45:80)}type();
 $$('.photo').forEach((p,i)=>{const like=$('.like',p),count=$('span',like),form=$('.commentForm',p),comments=$('.comments',p),key='ss-photo-'+i;let data;try{data=JSON.parse(localStorage.getItem(key))||{liked:false,count:0,comments:[]}}catch{data={liked:false,count:0,comments:[]}};function render(){like.classList.toggle('active',data.liked);like.firstChild.nodeValue=data.liked?'♥ ':'♡ ';count.textContent=data.count;comments.innerHTML=data.comments.map(x=>`<p>${x.replace(/[<>&]/g,c=>({'<':'&lt;','>':'&gt;','&':'&amp;'}[c]))}</p>`).join('');localStorage.setItem(key,JSON.stringify(data))}like.addEventListener('click',()=>{data.liked=!data.liked;data.count=Math.max(0,data.count+(data.liked?1:-1));render()});$('.commentToggle',p).addEventListener('click',()=>form.classList.toggle('show'));form.addEventListener('submit',e=>{e.preventDefault();const input=$('input',form),v=input.value.trim();if(v){data.comments.push(v.slice(0,120));input.value='';render()}});render()});
 const cv=$('#particles'),ctx=cv.getContext('2d');let dots=[];function size(){cv.width=innerWidth*devicePixelRatio;cv.height=innerHeight*devicePixelRatio;ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);dots=Array.from({length:Math.min(80,Math.floor(innerWidth/15))},()=>({x:Math.random()*innerWidth,y:Math.random()*innerHeight,z:Math.random()*1+.2,s:Math.random()*1.4+.3}))}size();addEventListener('resize',size);function draw(){ctx.clearRect(0,0,innerWidth,innerHeight);ctx.fillStyle='#f20d20';for(const d of dots){d.y-=d.z*.28;if(d.y<0)d.y=innerHeight;ctx.globalAlpha=.12+d.z*.28;ctx.beginPath();ctx.arc(d.x,d.y,d.s*d.z,0,7);ctx.fill()}requestAnimationFrame(draw)}if(!matchMedia('(prefers-reduced-motion: reduce)').matches)draw();
+// লাইক টগল ফাংশন
+function toggleLike() {
+  let countSpan = document.getElementById('like-count');
+  let likeBtn = document.getElementById('like-btn-1');
+  if(!countSpan) return;
+  let currentLikes = parseInt(countSpan.innerText);
+  let hasLiked = localStorage.getItem('project1_liked');
+
+  if (!hasLiked) {
+    currentLikes += 1;
+    countSpan.innerText = currentLikes;
+    localStorage.setItem('project1_liked', 'true');
+    if(likeBtn) likeBtn.style.background = 'rgba(255, 51, 102, 0.4)';
+  } else {
+    currentLikes -= 1;
+    countSpan.innerText = currentLikes;
+    localStorage.removeItem('project1_liked');
+    if(likeBtn) likeBtn.style.background = 'rgba(255,255,255,0.1)';
+  }
+}
+
+// কমেন্ট বক্স ওপেন/ক্লোজ করার ফাংশন
+function toggleCommentBox() {
+  let box = document.getElementById('comment-section');
+  if (box) {
+    box.style.display = (box.style.display === 'none' || box.style.display === '') ? 'block' : 'none';
+  }
+}
+
+// কমেন্ট যোগ করার ফাংশন
+function addComment() {
+  let input = document.getElementById('comment-input');
+  if(!input) return;
+  let commentText = input.value.trim();
+  if (commentText === '') return;
+
+  let list = document.getElementById('comment-list');
+  if(!list) return;
+  let p = document.createElement('p');
+  p.style.margin = '3px 0';
+  p.style.background = 'rgba(255,255,255,0.1)';
+  p.style.padding = '3px 6px';
+  p.style.borderRadius = '3px';
+  p.innerText = commentText;
+
+  list.appendChild(p);
+  input.value = '';
+}
